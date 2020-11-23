@@ -1,0 +1,1171 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="记录生活琐碎，记录学习日常">
+  <meta name="author" content="李白">
+  <meta name="keywords" content="前端,python,go,生活,JavaScript">
+  <title>css3入门(二) - 李白的自留地</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"6cec348bf296bad9745885e3f254a953","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"CbGF3axKThdgPETRO8kQK0Fp-gzGzoHsz","app_key":"lOqLYiXNPF4jO4wbvxJxCmC3","server_url":"https://cbgf3axk.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>李白的自留地</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://liujunhang.oss-cn-beijing.aliyuncs.com/20200307203002.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="css3入门(二)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      李白
+    </span>
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-11-24 00:04" pubdate>
+        2020年11月24日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      36
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">css3入门(二)</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：几秒前
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p><img src="https://unsplash.it/1600/900?random" srcset="/img/loading.gif" alt="风景"></p>
+<h2 id="2d变换"><a href="#2d变换" class="headerlink" title="2d变换"></a>2d变换</h2><p>在css3中，可以通过2d相关的属性实现元素的2d变换，包括:</p>
+<ul>
+<li>位移</li>
+<li>旋转</li>
+<li>缩放</li>
+<li>倾斜</li>
+</ul>
+<h3 id="位移"><a href="#位移" class="headerlink" title="位移"></a>位移</h3><p>可以通过将transform的值设置为translate 来让元素进行位移，translate的语法如下:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">translate</span>(<span class="hljs-selector-tag">x</span>, <span class="hljs-selector-tag">y</span>)</code></pre></div>
+
+<ul>
+<li>x 沿着x轴位移的距离</li>
+<li>y 沿着y轴位移的距离</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">translateX</span>(<span class="hljs-selector-tag">length</span>)</code></pre></div>
+
+<ul>
+<li>length x轴位移的距离</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">translateY</span>(<span class="hljs-selector-tag">length</span>)</code></pre></div>
+
+<ul>
+<li>length Y轴位移的距离</li>
+</ul>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 500px;
+        height: 400px;
+        border: 1px solid red; 
+        margin: 100px auto;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.content</span> <span class="hljs-selector-class">.d1</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        transition: 3s;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.content</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.d1</span> &#123;</span>
+        transform: translate(100px,100px);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123201743.png" srcset="/img/loading.gif"></p>
+<h3 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h3><p>2d的旋转可以通过将transform属性设置为rotate并且设置旋转的角度。</p>
+<p>语法格式如下:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">rotate</span>(<span class="hljs-selector-tag">deg</span>)</code></pre></div>
+
+<ul>
+<li>deg 角度</li>
+</ul>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 300px;
+        height: 300px;
+        margin: 100px auto;
+        background-color: red;
+        transform: rotate(120deg);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123202817.png" srcset="/img/loading.gif"></p>
+<h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><p>通过将transform设置为scale可以实现元素的缩放效果。</p>
+<p>语法格式如下:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">scale</span>(<span class="hljs-selector-tag">x</span>,<span class="hljs-selector-tag">y</span>)</code></pre></div>
+
+<ul>
+<li>将元素的宽度更改为原来的x倍</li>
+<li>将元素的高度更改为原来的y倍</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">scaleX</span>(<span class="hljs-selector-tag">n</span>)</code></pre></div>
+
+<ul>
+<li>n 将元素的宽度变为原来的n倍</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">scaleY</span>(<span class="hljs-selector-tag">n</span>)</code></pre></div>
+
+<ul>
+<li>n 将元素的高度变为原来的n倍</li>
+</ul>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 100px auto;
+        transform: scale(2,2);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123203730.png" srcset="/img/loading.gif"></p>
+<h3 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h3><p>通过将transform属性设置为skew可以进行倾斜操作。</p>
+<p>语法格式如下:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">skew</span>(<span class="hljs-selector-tag">x</span>, <span class="hljs-selector-tag">y</span>)</code></pre></div>
+
+<ul>
+<li>x 元素沿着水平方向倾斜的角度</li>
+<li>y 元素沿着垂直方向倾斜的角度</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">skewX</span>(<span class="hljs-selector-tag">deg</span>)</code></pre></div>
+
+<ul>
+<li>元素沿着水平方向倾斜的角度</li>
+</ul>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">skewY</span>(<span class="hljs-selector-tag">deg</span>)</code></pre></div>
+
+<p>元素沿着垂直方向倾斜的角度</p>
+<blockquote>
+<p>skew(x, y) 如果第二个参数没有提供，则值为0。也就是y轴方向上无倾斜。</p>
+</blockquote>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 300px;
+        height: 200px;
+        margin: 100px auto;
+<span class="css">        <span class="hljs-selector-tag">border</span>: 1<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">dotted</span> <span class="hljs-selector-id">#222</span>;</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.d1</span> &#123;</span>
+        width: 300px;
+        height: 200px;
+        background-color: lightblue;
+        transform: skewX(30deg);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123210718.png" srcset="/img/loading.gif"></p>
+<blockquote>
+<p>只要不是倾斜的角度是180度，skewX()元素会保持着本身的高度，在保持本身高度的基础上进行拉长自身产生倾斜。</p>
+<p>skewY() 元素会保持本身的宽度，沿着Y轴倾斜。</p>
+<p>skew(x,y)方法会先按照skewX()方法倾斜，然后按照skewY()方法倾斜</p>
+</blockquote>
+<h3 id="2d中心原点"><a href="#2d中心原点" class="headerlink" title="2d中心原点"></a>2d中心原点</h3><p>在2d中，可以通过transform-origin属性设置中心原点。默认情况下，元素的中心原点位于X轴和Y轴的50%处。</p>
+<p>默认情况下，CSS3变形进行的位移、缩放、旋转、倾斜都是以元素的中心原点进行变形。</p>
+<p>语法格式:</p>
+<div class="hljs"><pre><code class="hljs css">transform-origin: &lt;length-percentage&gt; | keywords</code></pre></div>
+
+<ul>
+<li>length-percentage 长度值一般使用百分比作为单位，很少使用px、em等作为单位。</li>
+<li>keywords 关键字</li>
+</ul>
+<p><strong>transform-origin属性取值</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">百分比</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">top left</td>
+<td align="left">0 0</td>
+<td align="left">左上</td>
+</tr>
+<tr>
+<td align="left">top center</td>
+<td align="left">50% 0</td>
+<td align="left">靠上居中</td>
+</tr>
+<tr>
+<td align="left">top right</td>
+<td align="left">100% 0</td>
+<td align="left">右上</td>
+</tr>
+<tr>
+<td align="left">left center</td>
+<td align="left">0 50%</td>
+<td align="left">靠左居中</td>
+</tr>
+<tr>
+<td align="left">center center</td>
+<td align="left">50% 50%</td>
+<td align="left">正中</td>
+</tr>
+<tr>
+<td align="left">right center</td>
+<td align="left">100% 50%</td>
+<td align="left">靠右居中</td>
+</tr>
+<tr>
+<td align="left">bottom left</td>
+<td align="left">0 100%</td>
+<td align="left">左下</td>
+</tr>
+<tr>
+<td align="left">bottom center</td>
+<td align="left">50% 100%</td>
+<td align="left">靠下居中</td>
+</tr>
+<tr>
+<td align="left">bottom right</td>
+<td align="left">100% 100%</td>
+<td align="left">右下</td>
+</tr>
+</tbody></table>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 400px;
+        height: 300px;
+        border: 1px dotted red;
+        margin: 300px auto;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.d1</span> &#123;</span>
+        width: 400px;
+        height: 300px;
+        background-color: lightblue;
+        transform: rotate(45deg);
+        transform-origin: right top;
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123213408.png" srcset="/img/loading.gif"></p>
+<h2 id="3d变换"><a href="#3d变换" class="headerlink" title="3d变换"></a>3d变换</h2><p>首先需要知道的是，css3中的3d只是伪3d，其次，相对于2d来说，3d的变换多了一个z轴。</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123223902.png" srcset="/img/loading.gif"></p>
+<p>3d中的属性:</p>
+<ul>
+<li>translate3d(x,y,z) / translateX  translateY translateZ</li>
+<li>scale3d(x,y,z) / scaleX scaleY scaleZ</li>
+<li>rotate3d(x,y,angle) / rotateX(angle) rotateY(angle) rotateZ(angle)</li>
+<li>transform-style: flat | preserve-3d [开启3d空间]</li>
+<li>perspective[给父元素设置] 和  perspective() [给当前元素设置]</li>
+<li>backface-visibibility 背面隐藏</li>
+</ul>
+<h3 id="3d-位移"><a href="#3d-位移" class="headerlink" title="3d 位移"></a>3d 位移</h3><p>想要实现3d位移，可以通过下面的几个属性来实现：</p>
+<ul>
+<li>translateX 沿着x轴位移</li>
+<li>translateY 沿着y轴位移</li>
+<li>translateZ 沿着z轴位移</li>
+<li>translate3d(x,y,z) x轴、y轴、z轴位移</li>
+</ul>
+<p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;d1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 400px;
+        height: 300px;
+        border: 1px dotted red;
+        margin: 100px auto;
+        perspective: 1200px;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.d1</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        transition: 3s;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.content</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.d1</span> &#123;</span>
+<span class="css">        <span class="hljs-selector-tag">transform</span><span class="hljs-selector-pseudo">:translate3d(100px</span>, 200<span class="hljs-selector-tag">px</span>, 300<span class="hljs-selector-tag">px</span>);</span>
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123221355.png" srcset="/img/loading.gif"></p>
+<h3 id="3d-缩放"><a href="#3d-缩放" class="headerlink" title="3d 缩放"></a>3d 缩放</h3><p>想要使用3d 缩放，可以通过下面的几个属性来实现：</p>
+<ul>
+<li>scaleX(n) 宽度变为n倍</li>
+<li>scaleY(n) 高度变为n倍</li>
+<li>scaleZ(n) 沿着z轴进行缩放</li>
+<li>scale3d(sx,sy,sz) 3d缩放函数</li>
+</ul>
+<p>示例代码:</p>
+<ul>
+<li>scaleX(n)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    body &#123;
+        perspective: 1200px;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 100px auto;
+        transform: scaleX(3);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123230241.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>scaleY(n)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    body &#123;
+        perspective: 1200px;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 100px auto;
+        transform: scaleY(3);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123230336.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>scaleZ(n)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    body &#123;
+        perspective: 1200px;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 100px auto;
+        transform: scaleZ(25) rotateX(30deg);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123230526.png" srcset="/img/loading.gif"></p>
+<blockquote>
+<p>如果单独的演示scaleZ是看不到效果的，必须开启视距以及配合其他的变形属性。</p>
+</blockquote>
+<ul>
+<li>scale3d()</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    body &#123;
+        perspective: 1200px;
+    &#125;
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin: 100px auto;
+        transform: scale3d(2,2,20) rotateX(30deg);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<h3 id="3d旋转"><a href="#3d旋转" class="headerlink" title="3d旋转"></a>3d旋转</h3><p>想要使用3d旋转，可以通过下面的属性来实现：</p>
+<ul>
+<li>rotate3d(x,y,angle) </li>
+<li>rotateX(angle)</li>
+<li>rotateY(angle)</li>
+<li>rotateZ(angle)</li>
+</ul>
+<p>示例代码:</p>
+<ul>
+<li>rotate3d(x,y,angle)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 300px;
+        height: 200px;
+        background-color: red;
+        margin: 100px auto;
+        transform: rotate3d(1,2,3,30deg) perspective(1200px);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123231701.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>rotateX(angle) 和 rotateY(angle)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 300px;
+        height: 200px;
+        background-color: red;
+        margin: 100px auto;
+        transform: rotateX(30deg) rotateY(30deg) perspective(1200px);
+        transform-style: preserve-3d;
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123232007.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>rotateZ(angle)</li>
+</ul>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+<span class="css">    <span class="hljs-selector-class">.content</span> &#123;</span>
+        width: 300px;
+        height: 200px;
+        background-color: red;
+        margin: 100px auto;
+        transform: rotateZ(120deg);
+        transform-style: preserve-3d;
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123232204.png" srcset="/img/loading.gif"></p>
+<h3 id="正方体案例"><a href="#正方体案例" class="headerlink" title="正方体案例"></a>正方体案例</h3><p>示例代码:</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    * &#123;
+        margin: 0;
+        padding: 0;
+    &#125;
+
+    ul &#123;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        position: relative;
+        transition: 6s;
+        list-style: none;
+        transform-style: preserve-3d;
+    &#125;
+    ul li &#123;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 200px;
+<span class="css">        <span class="hljs-selector-tag">color</span>: <span class="hljs-selector-id">#222</span>;</span>
+        font-size: 20px;
+        position: absolute;
+        backface-visibility: hidden;
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(1)</span> &#123;</span>
+        transform: rotateX(0deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(200,0,0,<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(2)</span> &#123;</span>
+        transform: rotateX(90deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(0,255,0,<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(3)</span> &#123;</span>
+        transform: rotateX(180deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(0,0,200,<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(4)</span> &#123;</span>
+        transform: rotateX(270deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(200,100,0,<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(5)</span> &#123;</span>
+        transform: rotateY(90deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(62, 111, 175, 0<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+<span class="css">    <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-pseudo">:nth-child(6)</span> &#123;</span>
+        transform: rotateY(-90deg) translateZ(100px);
+<span class="css">        <span class="hljs-selector-tag">background-color</span>: <span class="hljs-selector-tag">rgba</span>(146, 41, 150, 0<span class="hljs-selector-class">.6</span>);</span>
+    &#125;
+
+<span class="css">    <span class="hljs-selector-tag">ul</span><span class="hljs-selector-pseudo">:hover</span> &#123;</span>
+        transform: rotateX(360deg) rotateY(360deg);
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果：</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123234156.png" srcset="/img/loading.gif"></p>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>在css3中，实现动画需要通过下面的属性来实现:</p>
+<ul>
+<li>animation-name 调用关键帧</li>
+<li>animation-duration 动画完成时间</li>
+<li>animation-timing-function 动画的速度曲线</li>
+<li>animation-delay 延迟</li>
+<li>animation-iteration-count 动画播放的次数 <ul>
+<li>n 具体次数</li>
+<li>infinite 无限次播放</li>
+</ul>
+</li>
+<li>animation-direction 动画是否轮流反向播放动画<ul>
+<li>normal 正常</li>
+<li>alterate 轮流反向播放</li>
+</ul>
+</li>
+<li>animation-play-state 暂停/运行<ul>
+<li>paused 暂停</li>
+<li>running 运行</li>
+</ul>
+</li>
+<li>animation-fill-mode 规定动画在播放前或者之后，动画效果是否可见<ul>
+<li>none 不改变默认</li>
+<li>forwards 当动画完成后保持最后一个属性值</li>
+<li>backwards 在animation-delay指定的一段时间之内，在动画显示之前，应用开始属性值</li>
+</ul>
+</li>
+</ul>
+<p>简写语法:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">animation</span>: <span class="hljs-selector-tag">name</span> <span class="hljs-selector-tag">duration</span> <span class="hljs-selector-tag">timing-function</span> <span class="hljs-selector-tag">delay</span> <span class="hljs-selector-tag">iteration</span> <span class="hljs-selector-tag">-count</span> <span class="hljs-selector-tag">direction</span></code></pre></div>
+
+<p><strong>关键帧的创建</strong></p>
+<p>keyframes:</p>
+<div class="hljs"><pre><code class="hljs css"><span class="hljs-selector-tag">keyframes</span> 关键帧名 &#123;
+
+	0% &#123;&#125;
+
+    10% &#123;&#125;
+
+    ...
+
+    100% &#123;&#125;
+
+&#125;</code></pre></div>
+
+<p>示例：</p>
+<div class="hljs"><pre><code class="hljs html">html代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;chest&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heart left side top&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heart center&quot;</span>&gt;</span><span class="hljs-symbol">&amp;hearts;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;heart right side&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+css代码:
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
+    html, body &#123;
+        height: 100%;
+    &#125;
+
+    body &#123;
+        margin: 0;
+        padding: 0;
+<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#ffa5a5</span>;</span>
+<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">linear-gradient</span>(<span class="hljs-selector-tag">to</span> <span class="hljs-selector-tag">bottom</span>, <span class="hljs-selector-id">#ffa5a5</span> 0%,<span class="hljs-selector-id">#ffd3d3</span> 100%);</span>
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.chest</span> &#123;</span>
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        position: relative;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.heart</span> &#123;</span>
+        position: absolute;
+        z-index: 2;
+<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">linear-gradient</span>(<span class="hljs-selector-tag">-90deg</span>, <span class="hljs-selector-id">#F50A45</span> 0%, <span class="hljs-selector-id">#d5093c</span> 40%);</span>
+<span class="css">        <span class="hljs-selector-tag">animation</span>: <span class="hljs-selector-tag">beat</span> 0<span class="hljs-selector-class">.7s</span> <span class="hljs-selector-tag">ease</span> 0<span class="hljs-selector-tag">s</span> <span class="hljs-selector-tag">infinite</span> <span class="hljs-selector-tag">normal</span>;</span>
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.heart</span><span class="hljs-selector-class">.center</span> &#123;</span>
+<span class="css">        <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-tag">linear-gradient</span>(<span class="hljs-selector-tag">-45deg</span>, <span class="hljs-selector-id">#B80734</span> 0%, <span class="hljs-selector-id">#d5093c</span> 40%);</span>
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.heart</span><span class="hljs-selector-class">.top</span> &#123;</span>
+        z-index: 3;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.side</span> &#123;</span>
+        top: 100px;
+        width: 220px;
+        height: 220px;
+        border-radius: 220px;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.center</span> &#123;</span>
+        width: 210px;
+        height: 210px;
+        bottom: 100px;
+        left: 145px;
+        font-size: 0;
+        text-indent: -9999px;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.left</span> &#123;</span>
+        left: 62px;
+    &#125;
+
+<span class="css">    <span class="hljs-selector-class">.right</span> &#123;</span>
+        right: 62px;
+    &#125;
+
+
+<span class="css">    <span class="hljs-keyword">@keyframes</span> beat &#123;</span>
+        0% &#123;
+            transform: scale(1) rotate(225deg);
+<span class="css">            <span class="hljs-selector-tag">box-shadow</span><span class="hljs-selector-pseudo">:0</span> 0 40<span class="hljs-selector-tag">px</span> <span class="hljs-selector-id">#d5093c</span>;</span>
+        &#125;
+
+        50% &#123;
+<span class="css">            <span class="hljs-selector-tag">transform</span>: <span class="hljs-selector-tag">scale</span>(1<span class="hljs-selector-class">.1</span>) <span class="hljs-selector-tag">rotate</span>(225<span class="hljs-selector-tag">deg</span>);</span>
+<span class="css">            <span class="hljs-selector-tag">box-shadow</span><span class="hljs-selector-pseudo">:0</span> 0 70<span class="hljs-selector-tag">px</span> <span class="hljs-selector-id">#d5093c</span>;</span>
+        &#125;
+
+        100% &#123;
+            transform: scale(1) rotate(225deg);
+<span class="css">            <span class="hljs-selector-tag">box-shadow</span><span class="hljs-selector-pseudo">:0</span> 0 40<span class="hljs-selector-tag">px</span> <span class="hljs-selector-id">#d5093c</span>;</span>
+        &#125;
+    &#125;
+<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></code></pre></div>
+
+<p>实际效果:</p>
+<p><img src="https://liujunhang.oss-cn-beijing.aliyuncs.com/20201123235657.png" srcset="/img/loading.gif"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/css3-css3%E5%8A%A8%E7%94%BB-css3-2d-css3-3d/">css3,css3动画,css3 2d,css3 3d</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/11/23/css3%E5%85%A5%E9%97%A8-%E4%B8%80/">
+                        <span class="hidden-mobile">css3入门(一)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     记录生活，记录工作 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6cec348bf296bad9745885e3f254a953";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
